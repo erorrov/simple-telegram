@@ -26,7 +26,7 @@ class Telegram{
     curl_setopt($ch, CURLOPT_POSTFIELDS, $content);
     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
     $result = curl_exec($ch);
-    return json_decode($result);
+    return json_decode($result, true);
   }
 
 }
