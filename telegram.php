@@ -30,15 +30,15 @@ class Telegram{
   }
 
   public function buildInlineKeyboard(array $buttons){
-    return json_encode(["inline_keyboard" => $buttons], true);
+    return json_encode(array("inline_keyboard" => $buttons), true);
   }
 
   public function buildReplyKeyboard(array $buttons, array $params = array()){
-    return json_encode(["keyboard" => $buttons, $params], true);
+    return json_encode(array("keyboard" => $buttons, $params), true);
   }
 
   public function removeReplyKeyboard(array $params = array()){
-    return json_encode(["remove_keyboard" => true, $params], true);
+    return json_encode(array("remove_keyboard" => true, $params), true);
   }
 
   public function sendRequest($method, array $params){
