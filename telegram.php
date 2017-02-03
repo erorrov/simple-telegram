@@ -45,6 +45,15 @@ class Telegram{
     return json_encode(array("remove_keyboard" => true, $params), true);
   }
 
+  //¯\_(ツ)_/¯
+  public function buildInlineLine(array $params){
+    return $params;
+  }
+
+  public function buildInlineQueryResult(array $params){
+    return json_encode($params);
+  }
+
   public function sendRequest($method, array $params){
     $ch = curl_init();
     $url = "https://api.telegram.org/bot".$this->token."/".$method;
