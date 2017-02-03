@@ -37,6 +37,10 @@ class Telegram{
     return json_encode(array("keyboard" => $buttons, $params), true);
   }
 
+  public function buildForceReply(array $params = array()){
+    return json_encode(array("force_reply" => true, $params), true);
+  }
+
   public function removeReplyKeyboard(array $params = array()){
     return json_encode(array("remove_keyboard" => true, $params), true);
   }
