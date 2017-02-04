@@ -5,7 +5,7 @@ class Telegram{
 
   private $token;
   private $data = array();
-  private $debug;
+  private $debug = false;
 
   function __construct($token){
     $this->token = $token;
