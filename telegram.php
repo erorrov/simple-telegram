@@ -5,6 +5,7 @@ class Telegram{
 
   private $token;
   private $data = array();
+  private $debug;
 
   function __construct($token){
     $this->token = $token;
@@ -54,7 +55,15 @@ class Telegram{
     return json_encode($params);
   }
 
-  public function sendRequest($method, array $params){
+  public function enableDebug($chat_id){
+    $this->debug = $chat_id;
+  }
+
+  public function disableDebug(){
+    $this->debug = false;
+  }
+
+  public function sendRequest($method, array $params, $debug = false){
     $ch = curl_init();
     $url = "https://api.telegram.org/bot".$this->token."/".$method;
     curl_setopt($ch, CURLOPT_URL, $url);
@@ -64,6 +73,17 @@ class Telegram{
     curl_setopt($ch, CURLOPT_POSTFIELDS, $params);
     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
     $result = curl_exec($ch);
+
+    if(!$debug && $this->debug){
+      $debugparams = array(
+        "chat_id" => $this->debug,
+        "text" => "<b>[Debug info]</b>\n<pre>".print_r(json_decode($result), true)."</pre>",
+        "parse_mode" => "HTML"
+      );
+
+      $this->sendRequest("sendMessage", $debugparams, true);
+    }
+
     return json_decode($result, true);
   }
 
