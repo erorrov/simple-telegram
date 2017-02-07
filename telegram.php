@@ -63,7 +63,7 @@ class Telegram{
     $this->debug = false;
   }
 
-  public function sendRequest($method, array $params, $debug = false){
+  public function sendRequest($method, array $params = array(), $debug = false){
     $ch = curl_init();
     $url = "https://api.telegram.org/bot".$this->token."/".$method;
     curl_setopt($ch, CURLOPT_URL, $url);
