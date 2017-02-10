@@ -1,68 +1,139 @@
 <?php
+/**
+ * A simple PHP class for telegram bot API.
+ * @author Egor Egorov <github@erorrov.ru>
+ * @license https://raw.githubusercontent.com/erorrov/telegram-simple/master/LICENSE
+ */
+
 //namespace tg;
 
 class Telegram{
 
+  /**
+  * Set bot token
+  * @var string
+  */
   private $token;
+
+  /**
+  * Stores data of a message (WebHook)
+  * @var string
+  */
   private $data = array();
+
+  /**
+  * Debug mode switch
+  * @var boolean
+  */
   private $debug = false;
 
+  /**
+  * Constructor
+  * @param string $token
+  */
   function __construct($token){
     $this->token = $token;
     $this->data = $this->getData();
   }
 
+  /** 
+  * Get an array of current message
+  * @return array
+  */
   public function getData(){
     return json_decode(file_get_contents("php://input"), true);
   }
 
+  /** 
+  * Just curl_file_create()
+  * @return resource
+  */
   public function loadFile($path){
     return curl_file_create($path);
   }
 
-  //¯\_(ツ)_/¯
+  /** 
+  * Make an inline button. In fact, useless function but may be useful for beginners to grasp.
+  * @return array
+  */
   public function buildInlineButton(array $params){
     return $params;
   }
 
-  //¯\_(ツ)_/¯
+  /** 
+  * Make a button. In fact, useless function but may be useful for beginners to grasp.
+  * @return array
+  */
   public function buildReplyButton(array $params){
     return $params;
   }
 
+  /** 
+  * Make an inline keyboard
+  * @return array
+  */
   public function buildInlineKeyboard(array $buttons){
     return json_encode(array("inline_keyboard" => $buttons), true);
   }
 
+  /** 
+  * Make a reply keyboard
+  * @return array
+  */
   public function buildReplyKeyboard(array $buttons, array $params = array()){
     return json_encode(array("keyboard" => $buttons, $params), true);
   }
 
+  /** 
+  * Make ForceReply
+  * @return array
+  */
   public function buildForceReply(array $params = array()){
     return json_encode(array("force_reply" => true, $params), true);
   }
 
+  /** 
+  * To remove a reply keyboard
+  * @return array
+  */
   public function removeReplyKeyboard(array $params = array()){
     return json_encode(array("remove_keyboard" => true, $params), true);
   }
 
-  //¯\_(ツ)_/¯
+  /** 
+  * Make inline line. In fact, useless function but may be useful for beginners to grasp.
+  * @return array
+  */
   public function buildInlineLine(array $params){
     return $params;
   }
 
+  /** 
+  * To build inline query result
+  * @return array
+  */
   public function buildInlineQueryResult(array $params){
     return json_encode($params);
   }
 
+  /** 
+  * Enable debug mode
+  */
   public function enableDebug($chat_id){
     $this->debug = $chat_id;
   }
 
+  /** 
+  * Disable debug mode
+  */
   public function disableDebug(){
     $this->debug = false;
   }
 
+  /** 
+  * Make api request
+  * @return array
+  */
   public function sendRequest($method, array $params = array(), $debug = false){
     $ch = curl_init();
     $url = "https://api.telegram.org/bot".$this->token."/".$method;
