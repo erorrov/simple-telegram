@@ -2,7 +2,7 @@
 A simple PHP class for telegram bot API. Useful for learning.
 
 **This class are currently under development<br/>
-The README.md was updated Feb 05 2017**
+The README.md was updated Feb 11 2017**
 
 Requirements
 ------------
@@ -89,13 +89,13 @@ $tg->sendRequest("sendMessage", $params);
 
 ######Enable debug mode
 ```php
-$tg->enableDebug("CHAT_ID");
+$tg->debug(CHAT_ID);
 ```
 
 
 ######Disable debug mode
 ```php
-$tg->disableDebug();
+$tg->debug();
 ```
 
 
