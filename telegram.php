@@ -141,7 +141,7 @@ class Telegram{
     if(!$debug && $this->debug){
       $debugparams = array(
         "chat_id" => $this->debug,
-        "text" => "<b>[Debug info]</b>\n<pre>".print_r(json_decode($result), true)."</pre>",
+        "text" => "<b>[Debug info]</b>\n<b>Parameters:</b>\n<pre>".print_r($params, true)."</pre>\n<b>Result:</b>\n<pre>".print_r(json_decode($result), true)."</pre>",
         "parse_mode" => "HTML"
       );
 
