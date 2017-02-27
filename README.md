@@ -103,8 +103,8 @@ $tg->debug();
 ```php
 $lines = [
   ["type" => "contact", "id" => "1", "phone_number" => "+78005553535", "first_name" => "Tim", "last_name" => "Cook"],
-  ["type" => "location", "id" => "2", "latitude" => "55.7539303", "longitude" => "37.620795", "title" => "Kremlin and Red Square, Moscow"],
-  ["type" => "location", "id" => "3", "latitude" => "37.402473", "longitude" => "-122.3212843", "title" => "Silicon Valley"]
+  ["type" => "location", "id" => "2", "latitude" => 55.7539303, "longitude" => 37.620795, "title" => "Kremlin and Red Square, Moscow"],
+  ["type" => "location", "id" => "3", "latitude" => 37.402473, "longitude" => -122.3212843, "title" => "Silicon Valley"]
 ];
 
 $inline = $tg->buildInlineQueryResult($lines);
