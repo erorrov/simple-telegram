@@ -2,7 +2,7 @@
 A simple PHP class for telegram bot API. Useful for learning.
 
 **This class are currently under development<br/>
-The README.md was updated Feb 11 2017**
+The README.md was updated Feb 27 2017**
 
 Requirements
 ------------
