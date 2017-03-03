@@ -1,9 +1,6 @@
 # simple-telegram
 A simple PHP class for telegram bot API. Useful for learning.
 
-**This class are currently under development<br/>
-The README.md was updated Feb 27 2017**
-
 Requirements
 ------------
 * PHP 5 with cURL
@@ -52,7 +49,7 @@ $buttons = [
   [$btn1, $btn2],
   [$btn3]
 ];
-  
+
 $keyboard = $tg->buildReplyKeyboard($buttons); //supports a second parameter with array
 
 $params = ["chat_id" => $chat_id, "text" => "Hello, it's me", "reply_markup" => $keyboard];
@@ -79,7 +76,7 @@ $buttons = [
   [$btn1, $btn2],
   [$btn3]
 ];
-  
+
 $keyboard = $tg->buildInlineKeyboard($buttons); //supports a second parameter with array
 
 $params = ["chat_id" => $chat_id, "text" => "You'd like to meet", "reply_markup" => $keyboard];
