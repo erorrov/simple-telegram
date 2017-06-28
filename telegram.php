@@ -2,7 +2,7 @@
 /**
  * A simple PHP class for telegram bot API.
  * @author Egor Egorov <github@erorrov.ru>
- * @license https://raw.githubusercontent.com/erorrov/telegram-simple/master/LICENSE
+ * @license https://raw.githubusercontent.com/erorrov/simple-telegram/master/LICENSE
  */
 
 //namespace tg;
