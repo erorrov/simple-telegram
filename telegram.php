@@ -1,7 +1,7 @@
 <?php
 /**
  * A simple PHP class for telegram bot API.
- * @author Egor Egorov <github@erorrov.ru>
+ * @author Egor Egorov <egor@erorrov.ru>
  * @license https://raw.githubusercontent.com/erorrov/simple-telegram/master/LICENSE
  */
 

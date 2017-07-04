@@ -1,7 +1,7 @@
 <?php
 /**
  * Telegram webhook bot Example.
- * @author Egor Egorov <github@erorrov.ru>
+ * @author Egor Egorov <egor@erorrov.ru>
  */
 
 //Include file (class)
