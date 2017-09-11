@@ -15,7 +15,7 @@ $tg = new Telegram("BOT_TOKEN");
 ```
 
 
-######Getting an array of the current message
+###### Getting an array of the current message
 ```php
 $result = $tg->getData();
 $chat_id = $result['message']['chat']['id'];
@@ -23,7 +23,7 @@ $text = $result['message']['text'];
 ```
 
 
-######Sending requests to API as an example of the method sendLocation
+###### Sending requests to API as an example of the method sendLocation
 All available methods you can see [here](https://core.telegram.org/bots/api#available-methods).
 ```php
 $params = ["chat_id" => $chat_id, "latitude" => "55.7539303", "longitude" => "37.620795"];
@@ -31,7 +31,7 @@ $tg->sendRequest("sendLocation", $params);
 ```
 
 
-######Sending files
+###### Sending files
 ```php
 $file = $tg->loadFile("test.jpg");
 $params = ["chat_id" => $chat_id, "photo" => $file];
@@ -39,7 +39,7 @@ $tg->sendRequest("sendPhoto", $params);
 ```
 
 
-######Sending messages with keyboard
+###### Sending messages with keyboard
 ```php
 $btn1 = ["text" => "Button"];
 $btn2 = ["text" => "Again button"];
@@ -57,7 +57,7 @@ $tg->sendRequest("sendMessage", $params);
 ```
 
 
-######Removing keyboard
+###### Removing keyboard
 ```php
 $rmkb = $tg->removeReplyKeyboard();
 
@@ -66,7 +66,7 @@ $tg->sendRequest("sendMessage", $params);
 ```
 
 
-######Sending messages with inline-keyboard
+###### Sending messages with inline-keyboard
 ```php
 $btn1 = ["text" => "Button", "switch_inline_query" => "hello world"];
 $btn2 = ["text" => "Again button", "switch_inline_query_current_chat" => "qwerty"];
@@ -84,19 +84,19 @@ $tg->sendRequest("sendMessage", $params);
 ```
 
 
-######Enable debug mode
+###### Enable debug mode
 ```php
 $tg->debug(CHAT_ID);
 ```
 
 
-######Disable debug mode
+###### Disable debug mode
 ```php
 $tg->debug();
 ```
 
 
-######Response to inline query
+###### Response to inline query
 ```php
 $lines = [
   ["type" => "contact", "id" => "1", "phone_number" => "+78005553535", "first_name" => "Tim", "last_name" => "Cook"],
